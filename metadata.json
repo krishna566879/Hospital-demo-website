@@ -1,0 +1,6 @@
+{
+  "name": "Nivaan Multispeciality Hospital",
+  "description": "Premium, trustworthy, modern Indian multispeciality hospital application with online appointment booking, patient portal, and admin management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
