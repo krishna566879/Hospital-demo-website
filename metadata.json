@@ -1,6 +1,6 @@
 {
   "name": "Nivaan Multispeciality Hospital",
-  "description": "Premium, trustworthy, modern Indian multispeciality hospital application with online appointment booking, patient portal, and admin management.",
+  "description": "Premium, trustworthy, modern Indian multispeciality hospital website in Bhopal with clinical specializations, expert doctors, advanced facilities, 24/7 emergency care, and contact details.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

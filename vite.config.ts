@@ -4,7 +4,25 @@ import path from 'path';
 import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
+  // Sanitize VITE_SUPABASE_URL if it contains a REST subpath or trailing slashes
+  if (process.env.VITE_SUPABASE_URL) {
+    process.env.VITE_SUPABASE_URL = process.env.VITE_SUPABASE_URL
+      .trim()
+      .replace(/^["']|["']$/g, '')
+      .replace(/\/+$/, '')
+      .replace(/\/rest\/v1\/?.*$/, '')
+      .replace(/\/auth\/v1\/?.*$/, '')
+      .replace(/\/+$/, '');
+  }
+
+  const supabaseUrl = process.env.VITE_SUPABASE_URL || 'https://aexzqynhtgpjwlwuzsmm.supabase.co';
+  const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY || 'sb_publishable_rD5txt1BR3IX0dNc9Nxang_ijTT6ML5';
+
   return {
+    define: {
+      'import.meta.env.VITE_SUPABASE_URL': JSON.stringify(supabaseUrl),
+      'import.meta.env.VITE_SUPABASE_ANON_KEY': JSON.stringify(supabaseKey),
+    },
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
